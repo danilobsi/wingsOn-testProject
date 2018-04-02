@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WingsOn.Api", "WingsOn.Api\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WingsOn.Bus", "WingsOn.Bus\WingsOn.Bus.csproj", "{1CBFD921-4270-40C8-97F9-5DFDE31CB385}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WingsOn.Bus.Test", "WingsOn.Bus.Test\WingsOn.Bus.Test.csproj", "{D250E5F9-9036-4C94-BD13-39CBC39E6FC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +35,15 @@ Global
 		{1CBFD921-4270-40C8-97F9-5DFDE31CB385}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CBFD921-4270-40C8-97F9-5DFDE31CB385}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CBFD921-4270-40C8-97F9-5DFDE31CB385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D250E5F9-9036-4C94-BD13-39CBC39E6FC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D250E5F9-9036-4C94-BD13-39CBC39E6FC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D250E5F9-9036-4C94-BD13-39CBC39E6FC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D250E5F9-9036-4C94-BD13-39CBC39E6FC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29311F2F-C814-416F-8A14-62111A908925}
 	EndGlobalSection
 EndGlobal

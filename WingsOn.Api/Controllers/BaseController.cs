@@ -17,16 +17,18 @@ namespace WingsOn.Api.Controllers
 
                 var result = func();
                 if (result == null)
-                    return new HttpResponseMessage(HttpStatusCode.NoContent);
+                    return Request.CreateResponse(HttpStatusCode.NoContent, result);
 
                 if (result is IEnumerable<T>)
-                    return new HttpResponseMessage(((IList<T>)result).Count == 0 ? HttpStatusCode.NoContent : HttpStatusCode.OK);
+                    return Request.CreateResponse(
+                        ((IList<T>)result).Count == 0 ? HttpStatusCode.NoContent : HttpStatusCode.OK,
+                        result);
 
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                return Request.CreateResponse(HttpStatusCode.OK, result);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
             }
         }
     }

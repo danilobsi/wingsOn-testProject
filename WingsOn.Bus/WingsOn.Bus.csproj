@@ -40,8 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PassengersContract.cs" />
+    <Compile Include="Contract\PassengersContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WingsOn.Dal\WingsOn.Dal.csproj">
