@@ -19,19 +19,34 @@ namespace WingsOn.Bus
             this.bookingRepository = bookingRepository;
         }
 
+        /// <summary>
+        /// Gets person by Id
+        /// </summary>
+        /// <param name="id">Person's Id</param>
+        /// <returns>Person's data</returns>
         public Domain.Person Get(int id)
         {
             return Helper.RunMethod(() => personRepository.Get(id));
         }
 
-        public List<Domain.Person> GetByFlight(string flightId)
+        /// <summary>
+        /// Gets all the passengers by flight Number
+        /// </summary>
+        /// <param name="flightNumber">Passenger's Flight Number</param>
+        /// <returns>List of Passenger</returns>
+        public List<Domain.Person> GetByFlight(string flightNumber)
         {
             return Helper.RunMethod(() => bookingRepository.GetAll()
-                .Where(booking => booking.Flight.Number == flightId)
+                .Where(booking => booking.Flight.Number == flightNumber)
                 .Select(booking => booking.Passengers.ToList())
                 .FirstOrDefault() ?? new List<Person>());
         }
 
+        /// <summary>
+        /// Gets all the passengers by gender
+        /// </summary>
+        /// <param name="gender">Passenger's Gender (Male or Female)</param>
+        /// <returns>List of Passenger</returns>
         public List<Domain.Person> GetByGender(GenderType gender)
         {
             return Helper.RunMethod(() => personRepository.GetAll()

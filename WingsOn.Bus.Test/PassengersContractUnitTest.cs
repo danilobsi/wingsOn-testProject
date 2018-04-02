@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using WingsOn.Bus.Test.Mock;
@@ -82,7 +83,7 @@ namespace WingsOn.Bus.Test
 
         [TestMethod]
         [ExpectedException(typeof(Util.Helper.ExecutionException))]
-        public void GetAll_Exception()
+        public void Get_RepositoryException()
         {
             mockPersonRepository = new Mock<IRepository<Person>>();
             mockPersonRepository.Setup(x => x.Get(It.IsAny<int>())).Throws(new Exception("Repository not found"));
@@ -91,6 +92,19 @@ namespace WingsOn.Bus.Test
 
             int id = 91;
             var result = contract.Get(id);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Util.Helper.ExecutionException))]
+        public void GetAll_RepositoryInvalidResponse()
+        {
+            mockBookingRepository = new Mock<IRepository<Booking>>();
+            mockBookingRepository.Setup(x => x.GetAll()).Returns((List<Booking>)null);
+
+            contract = new PassengersContract(mockPersonRepository.Object, mockBookingRepository.Object);
+
+            string flightNumber = "PZ696";
+            var result = contract.GetByFlight(flightNumber);
 
         }
     }
