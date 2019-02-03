@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\BookingContract.cs" />
+    <Compile Include="Contract\FlightsContract.cs" />
+    <Compile Include="Contract\IBookingContract.cs" />
+    <Compile Include="Contract\IFlightsContract.cs" />
+    <Compile Include="Contract\IPassengersContract.cs" />
     <Compile Include="Contract\PassengersContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Helper.cs" />

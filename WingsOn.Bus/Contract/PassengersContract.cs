@@ -9,7 +9,7 @@ using WingsOn.Domain;
 
 namespace WingsOn.Bus
 {
-    public class PassengersContract
+    public class PassengersContract: IPassengersContract
     {
         IRepository<Domain.Person> personRepository;
         IRepository<Domain.Booking> bookingRepository;
@@ -54,5 +54,16 @@ namespace WingsOn.Bus
                 .ToList());
         }
 
+        /// <summary>
+        /// Create a new passenger
+        /// </summary>
+        /// <param name="passenger">Passenger to be created</param>
+        /// <returns>Created passenger</returns>
+        public Person Create(Person passenger)
+        {
+            personRepository.Save(passenger);
+
+            return passenger;
+        }
     }
 }
